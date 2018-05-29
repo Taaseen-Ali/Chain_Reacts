@@ -3,12 +3,20 @@
 // HW53 -- All That Bouncin'
 // 2018-05-42
 
-Ball[] balls = new Ball[30];  
+import java.util.*;
+List<Ball> balls = new ArrayList<Ball>();
+
 void setup() {
   size(600, 600);
   background(0, 0, 0);
   for (int i=0; i<30; i++)
-    balls[i] = new Ball();
+   balls.add(new Ball());
+}
+
+void mouseClicked(){
+  Ball toAdd = new Ball(mouseX,mouseY);
+  balls.add(toAdd);
+  //toAdd.expanding();
 }
 
 void draw() {
@@ -16,5 +24,5 @@ void draw() {
   for (Ball b : balls) {
     b.move();
     b.draw();
-  }
+  } 
 }
